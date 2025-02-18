@@ -1,5 +1,7 @@
 # React + TypeScript + Vite
 
+This is a simple Weather App created using React, Typescript, Vite, MaterialUI and the OpenWeatherApp application. 
+
 ### Setup:
 1. cd to `react-weather-app`
 2. Ensure node version is above 18 (I'm currently using v18.20.6)
