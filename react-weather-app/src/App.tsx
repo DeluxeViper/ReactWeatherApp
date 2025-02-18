@@ -8,12 +8,14 @@ import {
   Select,
   MenuItem,
   CircularProgress,
+  Autocomplete,
   Button,
 } from '@mui/material';
 import { getCurrentWeather, getForecast } from './services/weatherService';
 import { CurrentWeatherData, ForecastData } from './types/Weather';
 import WeatherCard from  './components/WeatherCard';
 import ForecastCard from './components/ForecastCard';
+import Footer from './components/Footer';
 import { City } from './types/City';
 import { cities } from './data/cities';
 import './styles/App.css';
@@ -72,7 +74,20 @@ const App = () => {
     }
   };
 
+  const closeForecastDisplay = () => {
+    setShowingForecast(false);
+    setForecast(null);
+    setLoadingForecast(false);
+  }
+
   return (
+    <Box
+      sx={{
+        position: 'relative',
+        minHeight: '100vh',
+        pb: 8,
+      }}
+    >
     <Container maxWidth="sm" sx={{ my: 4}}>
       <Typography variant="h4" gutterBottom>
         Simple Weather App
@@ -120,9 +135,19 @@ const App = () => {
           {loadingForecast ? 'Loading Forecast...' : 'See Forecast'}
         </Button>
       ) : (
-        <ForecastCard forecast={forecast} />
+        <Box>
+          <Button
+            variant="contained"
+            onClick={closeForecastDisplay}
+          >
+            {'Close'}
+          </Button>
+          <ForecastCard forecast={forecast} />
+        </Box>
       )}
     </Container>
+      <Footer />
+    </Box>
   )
 }
 

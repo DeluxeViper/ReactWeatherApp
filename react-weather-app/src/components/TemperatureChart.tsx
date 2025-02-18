@@ -16,7 +16,7 @@ interface TemperatureChartProps {
 const TemperatureChart = ({ data }: TemperatureChartProps) => {
   return (
     <Box sx={{ mt: 3, ml: -2 }}>
-      <strong style={{ paddingLeft: "10%", fontSize: "20px" }}>Temp Chart (5 days)</strong>
+      <strong style={{ paddingLeft: "40%", fontSize: "20px" }}>Daily Temp Chart</strong>
       <ResponsiveContainer height={300}>
         <LineChart data={data} width={500} height={300}>
           <XAxis
