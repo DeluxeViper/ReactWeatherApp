@@ -1,6 +1,12 @@
 import React from "react";
+import {
+  Stack,
+  CardContent,
+  Card,
+  Typography,
+  Box,
+} from '@mui/material';
 import { CurrentWeatherData } from "../types/Weather";
-import { Stack, CardContent, Card, Typography, Box } from '@mui/material';
 import WeatherDataLine from "./WeatherDataLine";
 
 interface WeatherCardProps {

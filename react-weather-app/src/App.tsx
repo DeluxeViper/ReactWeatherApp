@@ -1,12 +1,22 @@
 import React, { useEffect, useState } from 'react'
-import './styles/App.css';
-import { CurrentWeatherData, ForecastData } from './types/Weather';
-import { City } from './types/City';
+import {
+  Container,
+  Typography,
+  Box,
+  FormControl,
+  InputLabel,
+  Select,
+  MenuItem,
+  CircularProgress,
+  Button,
+} from '@mui/material';
 import { getCurrentWeather, getForecast } from './services/weatherService';
-import { cities } from './data/cities';
-import { Container, Typography, Box, FormControl, InputLabel, Select, MenuItem, CircularProgress, Button } from '@mui/material';
+import { CurrentWeatherData, ForecastData } from './types/Weather';
 import WeatherCard from  './components/WeatherCard';
 import ForecastCard from './components/ForecastCard';
+import { City } from './types/City';
+import { cities } from './data/cities';
+import './styles/App.css';
 
 const App = () => {
   const [selectedCityId, setSelectedCityId] = useState<number>(cities[0].id);

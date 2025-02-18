@@ -50,3 +50,8 @@ export interface ForecastData {
     country: string;
   };
 }
+
+export interface TemperatureListItem {
+  time: string;
+  temp: number;
+}

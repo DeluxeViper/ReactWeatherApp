@@ -1,12 +1,11 @@
 import React, { useState } from "react";
-import { ForecastData } from "../types/Weather";
+import dayjs from 'dayjs';
 import {
   Table,
   Box,
   Paper,
   Card,
   CardContent,
-  Divider,
   TableContainer,
   Typography,
   TableHead,
@@ -15,7 +14,8 @@ import {
   TableCell,
   Button,
 } from "@mui/material";
-import dayjs from 'dayjs';
+import { ForecastData, TemperatureListItem } from "../types/Weather";
+import TemperatureChart from "./TemperatureChart";
 
 interface ForecastCardProps {
   forecast: ForecastData;
@@ -33,6 +33,11 @@ const ForecastCard: React.FC<ForecastCardProps> = ({ forecast }) => {
   const filteredForecast = forecast.list.filter((item) => 
     item.dt_txt.startsWith(selectedDate)
   );
+
+  const data: TemperatureListItem[] = filteredForecast.map((item) => ({
+    time: dayjs(item.dt_txt).format('HH:mm'),
+    temp: item.main.temp,
+  }));
 
   return (
     <Card variant="outlined" sx={{ my: 2}}>
@@ -92,6 +97,8 @@ const ForecastCard: React.FC<ForecastCardProps> = ({ forecast }) => {
             </Button>
           ))}
         </Box>
+
+        <TemperatureChart data={data} />
       </CardContent>
     </Card>
   );
