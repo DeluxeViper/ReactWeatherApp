@@ -8,7 +8,6 @@ import {
   Select,
   MenuItem,
   CircularProgress,
-  Autocomplete,
   Button,
 } from '@mui/material';
 import { getCurrentWeather, getForecast } from './services/weatherService';
@@ -18,7 +17,6 @@ import ForecastCard from './components/ForecastCard';
 import Footer from './components/Footer';
 import { City } from './types/City';
 import { cities } from './data/cities';
-import './styles/App.css';
 
 const App = () => {
   const [selectedCityId, setSelectedCityId] = useState<number>(cities[0].id);
