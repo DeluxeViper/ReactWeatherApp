@@ -86,64 +86,64 @@ const App = () => {
         pb: 8,
       }}
     >
-    <Container maxWidth="sm" sx={{ my: 4}}>
-      <Typography variant="h4" gutterBottom>
-        Simple Weather App
-      </Typography>
-
-      <Box sx={{ mb: 2}}>
-        <FormControl fullWidth>
-          <InputLabel id="city-select-label">Select City</InputLabel>
-          <Select
-            labelId="city-select-label"
-            id="citySelect"
-            value={selectedCityId}
-            label="Select City"
-            onChange={handleCityChange}
-          >
-            {cities.map((city: City) => (
-              <MenuItem key={city.id} value={city.id}>
-                {city.name}, {city.country}
-              </MenuItem>
-            ))}
-          </Select>
-        </FormControl>
-      </Box>
-
-      {error && (
-        <Typography color="error" paragraph>
-          {error}
+      <Container maxWidth="sm" sx={{ my: 4}}>
+        <Typography variant="h4" gutterBottom>
+          Simple Weather App
         </Typography>
-      )}
 
-      {loadingCurrentWeather ? (
-        <Box display="flex" justifyContent="center" my={2}>
-          <CircularProgress />
+        <Box sx={{ mb: 2}}>
+          <FormControl fullWidth>
+            <InputLabel id="city-select-label">Select City</InputLabel>
+            <Select
+              labelId="city-select-label"
+              id="citySelect"
+              value={selectedCityId}
+              label="Select City"
+              onChange={handleCityChange}
+            >
+              {cities.map((city: City) => (
+                <MenuItem key={city.id} value={city.id}>
+                  {city.name}, {city.country}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
         </Box>
-      ) : (
-        currentWeather && <WeatherCard currentWeather={currentWeather} />
-      )}
 
-      {!forecast ? (
-        <Button
-          variant="contained"
-          onClick={handleFetchForecast}
-          disabled={loadingForecast || !!error}
-        >
-          {loadingForecast ? 'Loading Forecast...' : 'See Forecast'}
-        </Button>
-      ) : (
-        <Box>
+        {error && (
+          <Typography color="error" paragraph>
+            {error}
+          </Typography>
+        )}
+
+        {loadingCurrentWeather ? (
+          <Box display="flex" justifyContent="center" my={2}>
+            <CircularProgress />
+          </Box>
+        ) : (
+          currentWeather && <WeatherCard currentWeather={currentWeather} />
+        )}
+
+        {!forecast ? (
           <Button
             variant="contained"
-            onClick={closeForecastDisplay}
+            onClick={handleFetchForecast}
+            disabled={loadingForecast || !!error}
           >
-            {'Close'}
+            {loadingForecast ? 'Loading Forecast...' : 'See Forecast'}
           </Button>
-          <ForecastCard forecast={forecast} />
-        </Box>
-      )}
-    </Container>
+        ) : (
+          <Box>
+            <Button
+              variant="contained"
+              onClick={closeForecastDisplay}
+            >
+              {'Close'}
+            </Button>
+            <ForecastCard forecast={forecast} />
+          </Box>
+        )}
+      </Container>
       <Footer />
     </Box>
   )
