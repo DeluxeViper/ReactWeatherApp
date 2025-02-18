@@ -15,6 +15,7 @@ const App = () => {
 
   const [forecast, setForecast] = useState<ForecastData | null>(null);
   const [loadingForecast, setLoadingForecast] = useState(false);
+  const [showingForecast, setShowingForecast] = useState(false);
 
   const [error, setError] = useState<string | null>(null);
 
@@ -34,6 +35,10 @@ const App = () => {
     }
 
     fetchWeather();
+
+    if (showingForecast) {
+      handleFetchForecast();
+    }
   }, [selectedCityId]);
 
   const handleCityChange = (event: React.ChangeEvent<{ value: unknown }>) => {
@@ -48,8 +53,10 @@ const App = () => {
 
       const data = await getForecast(selectedCityId);
       setForecast(data);
+      setShowingForecast(true);
     } catch (e: any) {
       setError(e.message || 'Error fetching forecast');
+      setShowingForecast(false);
     } finally {
       setLoadingForecast(false);
     }
