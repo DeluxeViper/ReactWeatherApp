@@ -29,7 +29,7 @@ export interface CurrentWeatherData {
 }
 
 export interface ForecastListItem {
-  dt_text: string;
+  dt_txt: string;
   weather: WeatherInfo[];
   main: {
     temp: number;
