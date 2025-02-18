@@ -10,3 +10,4 @@ To run local server: `npm run dev`
 
 
 ### Demo of application
+[![Demo vid](file:SimpleWeatherAppMov.mov)]
