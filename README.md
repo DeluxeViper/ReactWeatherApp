@@ -10,4 +10,5 @@ To run local server: `npm run dev`
 
 
 ### Demo of application
-[![Demo vid](file:SimpleWeatherAppMov.mov)]
+<video src="https://github.com/user-attachments/assets/dd727a60-12a3-4bbf-bdc4-967316994842" controls="controls" style="max-width: 730px;">
+</video>
