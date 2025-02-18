@@ -28,7 +28,7 @@ const WeatherCard: React.FC<WeatherCardProps> = ({ currentWeather }) => {
         </Typography>
         <Stack direction="row" spacing={2} alignItems="center">
           <Box>
-            <Typography>Description: {description}</Typography>
+            <WeatherDataLine label="Description" value={description} />
 
             {/* Weather details */}
             <WeatherDataLine label="Temperature" value={main.temp} unit="°C" />
